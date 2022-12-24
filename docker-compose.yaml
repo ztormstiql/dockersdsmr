@@ -4,7 +4,7 @@ services:
     container_name: DSMR
     image: xirixiz/dsmr-reader-docker
     devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/ttyUSB0:/dev/ttyUSB0 #check location
     ports:
       - 7777:80
       - 7779:443
@@ -14,7 +14,7 @@ services:
       DJANGO_DATABASE_USER=dsmrreader
       DJANGO_DATABASE_PASSWORD=dsmrreader
       VIRTUAL_HOST=localhost
-    healthcheck: no
+    healthcheck: no #don't know if this is correct
     privileged: true
     restart: always
   
