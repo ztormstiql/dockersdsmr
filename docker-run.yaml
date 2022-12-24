@@ -1,0 +1,14 @@
+docker run -d \
+  --name dsmr \
+  --restart always \
+  -p 7777:80 \
+  -p 7779:443 \
+  -e DJANGO_TIME_ZONE=Europe/Amsterdam \
+  -e DJANGO_DATABASE_HOST=192.168.178.238 \
+  -e DJANGO_DATABASE_USER=dsmrreader \
+  -e DJANGO_DATABASE_PASSWORD=dsmrreader \
+  -e VIRTUAL_HOST=localhost \
+  --no-healthcheck \
+  --device /dev/ttyUSB0:/dev/ttyUSB0 \
+  --privileged=true \
+  xirixiz/dsmr-reader-docker
