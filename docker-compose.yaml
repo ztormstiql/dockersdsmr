@@ -1,0 +1,22 @@
+version: "2.4"
+services:
+  dsmr:
+    container_name: DSMR
+    image: xirixiz/dsmr-reader-docker
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+    ports:
+      - 7777:80
+      - 7779:443
+    environment:
+      DJANGO_TIME_ZONE=Europe/Amsterdam
+      DJANGO_DATABASE_HOST=192.168.178.238
+      DJANGO_DATABASE_USER=dsmrreader
+      DJANGO_DATABASE_PASSWORD=dsmrreader
+      VIRTUAL_HOST=localhost
+    healthcheck: no
+    privileged: true
+    restart: always
+  
+ 
+ 
